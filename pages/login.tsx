@@ -1,8 +1,9 @@
+import { NextPage } from 'next'
 import { FaTwitter, FaApple } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { Button, Divider, InputField, SignUp } from 'components'
 
-const login = () => {
+const Login: NextPage = () => {
     return (
         <div className='grid h-screen w-screen items-center justify-center bg-black bg-opacity-50 backdrop-blur-xl'>
             <div className='grid h-[40rem] w-[40rem] items-center justify-center rounded-xl bg-white p-4 shadow '>
@@ -14,7 +15,7 @@ const login = () => {
                 <Button type='sign-in' label='Sign in with Apple' icon={FaApple} />
                 <Divider label='or' />
                 <InputField label='Phone, email or username' />
-                <Button type='primary' label='Next' />
+                <Button type='black' label='Next' />
                 <Button type='secondary' label='Forgot your password?' />
                 <SignUp />
             </div>
@@ -22,4 +23,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login
