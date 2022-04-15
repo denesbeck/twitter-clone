@@ -2,7 +2,7 @@ import { ElementType } from 'react'
 import { IconType } from 'react-icons'
 
 interface ButtonProps {
-    type: 'sign-in' | 'black' | 'secondary' | 'blue' | 'white'
+    type: 'sign-in' | 'black' | 'white-black' | 'blue' | 'white-blue'
     label: string
     icon?: IconType
     handler?: () => void
@@ -12,13 +12,13 @@ const Button = ({ type, label, icon, handler }: ButtonProps) => {
     const renderButton = () => {
         switch (type) {
             case 'sign-in':
-            case 'secondary':
+            case 'white-black':
                 return 'border border-gray-300 bg-white hover:bg-gray-100'
             case 'black':
-                return 'bg-black text-white hover:ring-blue-300 hover:bg-gray-900'
+                return 'bg-black text-white hover:ring-blue-400 hover:bg-gray-900'
             case 'blue':
-                return 'bg-blue-400 text-white hover:bg-blue-600'
-            case 'white':
+                return 'bg-blue-400 border border-blue-400 text-white hover:bg-blue-600'
+            case 'white-blue':
                 return 'border border-gray-300 bg-white hover:bg-gray-100 text-blue-400'
         }
     }
