@@ -7,21 +7,22 @@ export interface PostSchema {
 
 const initialState = {
     loading: false,
-    searchString: '',
-    posts: null,
-    filteredPosts: null,
+    userName: null,
 }
 
 export interface StateSchema {
     loading: boolean
-    searchString: string
-    posts: PostSchema[]
-    filteredPosts: PostSchema[]
+    userName: string
+}
+
+enum ActionType {
+    LOADING = 'LOADING',
+    USER_NAME = 'USER_NAME',
 }
 
 export interface ActionSchema {
-    type: string
-    value: boolean | string | PostSchema[]
+    type: ActionType
+    value: boolean | string
 }
 
 const reducer = (state: StateSchema, action: ActionSchema) => {
@@ -31,20 +32,10 @@ const reducer = (state: StateSchema, action: ActionSchema) => {
                 ...state,
                 loading: action.value,
             }
-        case 'SEARCH_STRING':
+        case 'USER_NAME':
             return {
                 ...state,
-                searchString: action.value,
-            }
-        case 'POSTS':
-            return {
-                ...state,
-                posts: action.value,
-            }
-        case 'FILTERED_POSTS':
-            return {
-                ...state,
-                filteredPosts: action.value,
+                userName: action.value,
             }
         default:
             return { ...state }

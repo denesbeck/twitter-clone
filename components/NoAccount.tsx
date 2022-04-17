@@ -1,4 +1,4 @@
-const SignUp = () => {
+const NoAccount = () => {
     return (
         <div className='mb-12 w-full space-x-2 font-light text-gray-600'>
             <span>{"Don't have an account?"}</span>
@@ -9,4 +9,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default NoAccount
