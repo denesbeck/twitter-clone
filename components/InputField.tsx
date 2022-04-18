@@ -19,16 +19,14 @@ const InputField = forwardRef(({ label, autoFocus = false, disabled = false, isP
         setInputValue: (value: string) => setInputValue(value),
     }))
 
-    const renderEyeIcon = () => {
-        return (
-            <button
-                onClick={() => setIsExposed((currentState) => !currentState)}
-                className='absolute bottom-2 right-2 z-20 h-7 w-7 rounded-full border-2 border-transparent px-0.5 hover:bg-gray-100 focus:outline-none focus-visible:border-gray-400'
-            >
-                {isExposed ? <FaRegEyeSlash className='h-full w-full' /> : <FaRegEye className='h-full w-full' />}
-            </button>
-        )
-    }
+    const exposeSwitch = (
+        <button
+            onClick={() => setIsExposed((currentState) => !currentState)}
+            className='absolute bottom-2 right-2 z-20 h-7 w-7 rounded-full border-2 border-transparent px-0.5 hover:bg-gray-100 focus:outline-none focus-visible:border-gray-400'
+        >
+            {isExposed ? <FaRegEyeSlash className='h-full w-full' /> : <FaRegEye className='h-full w-full' />}
+        </button>
+    )
 
     return (
         <div className='relative grid h-14 w-full'>
@@ -39,9 +37,9 @@ const InputField = forwardRef(({ label, autoFocus = false, disabled = false, isP
                 onBlur={() => setIsFocused(false)}
                 value={inputValue}
                 type={isExposed ? 'text' : 'password'}
-                className={`relative z-10 h-full w-full rounded border ${
-                    disabled ? 'border-transparent bg-gray-50 text-gray-400' : 'bg-transparent'
-                } border-slate-400 bg-transparent px-2 pt-4 font-normal focus:border-blue-400 focus:outline-none`}
+                className={`relative z-10 h-full w-full rounded border px-2 pt-4 font-normal focus:border-blue-400 focus:outline-none ${
+                    disabled ? 'border-transparent bg-gray-100 text-gray-400' : 'border-slate-400 bg-transparent'
+                }`}
                 onChange={(e: ChangeEvent) => setInputValue((e.target as HTMLInputElement).value)}
             />
             <label
@@ -51,7 +49,7 @@ const InputField = forwardRef(({ label, autoFocus = false, disabled = false, isP
             >
                 {label}
             </label>
-            {isPassword && renderEyeIcon()}
+            {isPassword && exposeSwitch}
         </div>
     )
 })
