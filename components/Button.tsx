@@ -6,9 +6,10 @@ interface ButtonProps {
     label: string
     icon?: IconType
     handler?: () => void
+    disabled?: boolean
 }
 
-const Button = ({ type, label, icon, handler }: ButtonProps) => {
+const Button = ({ type, label, icon, handler, disabled = false }: ButtonProps) => {
     const renderButton = () => {
         switch (type) {
             case 'sign-in':
@@ -27,7 +28,8 @@ const Button = ({ type, label, icon, handler }: ButtonProps) => {
 
     return (
         <button
-            className={`${renderButton()} flex w-full max-w-xs items-center justify-center space-x-2 rounded-full px-4 py-2 font-medium ring-2 ring-transparent focus:outline-none focus:ring-blue-400`}
+            disabled={disabled}
+            className={`${renderButton()} flex w-full items-center justify-center space-x-2 rounded-full px-4 py-2 font-medium ring-2 ring-transparent focus:outline-none focus:ring-blue-400`}
             onClick={handler}
         >
             {icon && <TheIcon className='h-6 w-6' />}

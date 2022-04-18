@@ -1,10 +1,3 @@
-export interface PostSchema {
-    userId: number
-    id: number
-    title: string
-    body: string
-}
-
 const initialState = {
     loading: false,
     userName: null,
@@ -22,7 +15,7 @@ enum ActionType {
 
 export interface ActionSchema {
     type: ActionType
-    value: boolean | string
+    payload: boolean | string
 }
 
 const reducer = (state: StateSchema, action: ActionSchema) => {
@@ -30,12 +23,12 @@ const reducer = (state: StateSchema, action: ActionSchema) => {
         case 'LOADING':
             return {
                 ...state,
-                loading: action.value,
+                loading: action.payload,
             }
         case 'USER_NAME':
             return {
                 ...state,
-                userName: action.value,
+                userName: action.payload,
             }
         default:
             return { ...state }

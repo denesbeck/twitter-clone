@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import twitter from 'public/twitter.png'
 import { FaTwitter, FaApple } from 'react-icons/fa'
@@ -11,6 +12,11 @@ const Home: NextPage = () => {
 
     return (
         <div className='grid h-screen xl:grid-cols-12'>
+            <Head>
+                <title>Twitter. It’s what’s happening / Twitter</title>
+                <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+                <link rel='shortcut icon' href='twitter-logo.svg' type='image/x-icon' />
+            </Head>
             <div className='flex flex-col py-10 px-10 xl:col-span-5 xl:col-start-8 xl:py-32'>
                 <div className='col-span-2 space-y-12'>
                     <FaTwitter className='h-10 w-10 text-blue-400' />
